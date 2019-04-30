@@ -32,4 +32,10 @@
 **Estimate of time needed to complete:** *10 minutes*\
 **Start time:** *10:16am*\
 **Finish time:** *10:20am*\
-**Actual time needed to complete:** *5 minutes*
+**Actual time needed to complete:** *4 minutes*
+
+**Number and name of feature:** *3. As a user, I want to be able to browse the search results.*\
+**Estimate of time needed to complete:** *1 hour*\
+**Start time:** *10:26am*\
+**Finish time:** **\
+**Actual time needed to complete:** **
