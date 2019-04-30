@@ -9,10 +9,15 @@
 </head>
 <body>
   <h1>Hello World!</h1>
-  <input name="query" id="query" placeholder="Flowers" type="text">
-  <select name="title-or-author" id="title-or-author">
-    <option value="title">Title</option>
-    <option value="author">Author</option>
-  </select>
+  <form id="searches-form" action="/searches">
+    <input name="query" id="query" placeholder="Flowers" type="text">
+    <select name="title-or-author" id="title-or-author">
+      <option value="title">Title</option>
+      <option value="author">Author</option>
+    </select>
+    <input type="submit" value="Submit">
+  </form>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="searches.js"></script>
 </body>
 </html>
