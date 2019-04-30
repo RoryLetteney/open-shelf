@@ -16,7 +16,7 @@ app.post('/searches', (req, res) => getBooks(req, res));
 
 const getBooks = (req, res) => {
   const handler = {
-    query: req.query,
+    query: req.body,
     cacheHit: results => {
       res.send('hello');
     },
@@ -43,8 +43,7 @@ function Book(book) {
 }
 
 Book.fetchBooks = (query) => {
-  // const URL = `https://www.googleapis.com/books/v1/volumes?q=${query.title-or-author === 'title' ? query.query : `inauthor:${query.query}`}`;
-  const URL = `https://www.googleapis.com/books/v1/volumes?q=flowers+inauthor:keyes`;
+  const URL = `https://www.googleapis.com/books/v1/volumes?q=${query['title-or-author'] === 'title' ? query.query : `inauthor:${query.query}`}`;
 
   return superagent.get(URL)
     .then(res => {
