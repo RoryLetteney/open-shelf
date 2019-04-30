@@ -1,7 +1,7 @@
 # Open Shelf: A Book Wiki
 
 **Author**: Rory Letteney
-**Version**: 1.1.2
+**Version**: 1.2.2
 
 ## Overview
 <!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for a Code Fellows 301 class. (i.e. What's your problem domain?) -->
@@ -32,4 +32,10 @@
 **Estimate of time needed to complete:** *10 minutes*\
 **Start time:** *10:16am*\
 **Finish time:** *10:20am*\
-**Actual time needed to complete:** *5 minutes*
+**Actual time needed to complete:** *4 minutes*
+
+**Number and name of feature:** *3. As a user, I want to be able to browse the search results.*\
+**Estimate of time needed to complete:** *1 hour*\
+**Start time:** *10:26am*\
+**Finish time:** *11:43am*\
+**Actual time needed to complete:** *1 hour, 17 minutes*
