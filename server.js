@@ -24,7 +24,9 @@ const getBooks = (req, res) => {
       try {
         console.log('cache miss');
         Book.fetchBooks(handler.query)
-          .then(results => res.send(results));
+          .then(results => {
+            res.render('pages/searches/show', { results });
+          });
       } catch(err) {
         errorHandler(err, res);
       }
