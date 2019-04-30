@@ -45,7 +45,7 @@ function Book(book) {
 }
 
 Book.fetchBooks = (query) => {
-  const URL = `https://www.googleapis.com/books/v1/volumes?q=${query['title-or-author'] === 'title' ? query.query : `inauthor:${query.query}`}`;
+  const URL = `https://www.googleapis.com/books/v1/volumes?q=${query['title-or-author'] === 'title' ? `intitle:${query.query}` : `inauthor:${query.query}`}`;
 
   return superagent.get(URL)
     .then(res => {

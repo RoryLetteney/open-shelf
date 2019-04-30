@@ -11,6 +11,7 @@ main h2:first-of-type {
   color: #fff;
 }
 
+/**********************FORM***********************/
 form {
   width: 70%;
   margin: auto;
@@ -33,10 +34,38 @@ form #query {
   padding: 20px 0 20px 1.5625%;
 }
 
-
-
 form #submit {
   background-color: #222;
-  color: #fff;
-  
+  color: #fff; 
+}
+
+
+/**********************BOOKS***********************/
+.book-image {
+  display: block;
+  margin: auto;
+  width: 50%;
+}
+
+.book-title {
+  text-align: center;
+  font-size: 2em;
+  color: #333;
+  margin: 5px 0 0;
+}
+
+.book-author {
+  text-align: center;
+  font-size: 1.6em;
+  color: #222;
+  margin: 5px 0 0;
+  font-style: italic;
+}
+
+.book-description {
+  text-align: center;
+  font-size: 1.4em;
+  color: #222;
+  margin: 15px 0 0;
+  line-height: 1.6em;
 }
