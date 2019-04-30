@@ -1,0 +1,42 @@
+header h1 {
+  font-size: 3em;
+  color: #fff;
+}
+
+main h2:first-of-type {
+  font-size: 2em;
+  background-color: #777;
+  padding: 10px 0;
+  text-align: center;
+  color: #fff;
+}
+
+form {
+  width: 70%;
+  margin: auto;
+  padding-top: 30px;
+}
+
+form #query,
+form #title-or-author,
+form #submit {
+  width: 100%;
+  height: 50px;
+  font-size: 2em;
+  box-sizing: border-box;
+  border: none;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+form #query {
+  padding: 20px 0 20px 1.5625%;
+}
+
+
+
+form #submit {
+  background-color: #222;
+  color: #fff;
+  
+}

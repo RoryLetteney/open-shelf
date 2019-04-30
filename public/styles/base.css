@@ -8,5 +8,6 @@ html {
 }
 
 main {
-  
+  background-color: #aaa;
+  min-height: calc(100vh - 90px);
 }
