@@ -39,3 +39,9 @@
 **Start time:** *10:26am*\
 **Finish time:** *11:43am*\
 **Actual time needed to complete:** *1 hour, 17 minutes*
+
+**Number and name of feature:** *4. As a user, I want to view any error messages that occur during the usage of my book list application so that I know if something has gone wrong.*\
+**Estimate of time needed to complete:** *20 minutes*\
+**Start time:** *12:03pm*\
+**Finish time:** **\
+**Actual time needed to complete:** **
