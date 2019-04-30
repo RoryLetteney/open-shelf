@@ -25,5 +25,5 @@
 **Number and name of feature:** *1. As a user, I want my application to load quickly so that I have an enjoyable experience.*\
 **Estimate of time needed to complete:** *45 minutes*\
 **Start time:** *9:44am*\
-**Finish time:**\
-**Actual time needed to complete:**
+**Finish time:** *10:08am*\
+**Actual time needed to complete:** *24 minutes*
