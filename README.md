@@ -19,4 +19,11 @@
 
 ## Credits and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
--->
+
+## Time Estimates
+
+**Number and name of feature:** *1. As a user, I want my application to load quickly so that I have an enjoyable experience.*\
+**Estimate of time needed to complete:** *45 minutes*\
+**Start time:** *9:44am*\
+**Finish time:**\
+**Actual time needed to complete:**
