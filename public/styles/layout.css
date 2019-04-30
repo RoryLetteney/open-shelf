@@ -2,3 +2,11 @@ header {
   background-color: black;
   padding: 30px 3.125%;
 }
+
+.book {
+  width: 50%;
+  margin: 30px auto 0;
+  background-color: #ccc;
+  padding: 30px 3.125%;
+  box-sizing: border-box;
+}

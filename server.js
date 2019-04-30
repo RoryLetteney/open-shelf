@@ -24,7 +24,9 @@ const getBooks = (req, res) => {
       try {
         console.log('cache miss');
         Book.fetchBooks(handler.query)
-          .then(results => res.send(results));
+          .then(results => {
+            res.render('pages/searches/show', { results });
+          });
       } catch(err) {
         errorHandler(err, res);
       }
@@ -43,7 +45,7 @@ function Book(book) {
 }
 
 Book.fetchBooks = (query) => {
-  const URL = `https://www.googleapis.com/books/v1/volumes?q=${query['title-or-author'] === 'title' ? query.query : `inauthor:${query.query}`}`;
+  const URL = `https://www.googleapis.com/books/v1/volumes?q=${query['title-or-author'] === 'title' ? `intitle:${query.query}` : `inauthor:${query.query}`}`;
 
   return superagent.get(URL)
     .then(res => {

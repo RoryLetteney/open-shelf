@@ -1,7 +1,7 @@
 # Open Shelf: A Book Wiki
 
 **Author**: Rory Letteney
-**Version**: 1.3.1
+**Version**: 1.4.2
 
 ## Overview
 <!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for a Code Fellows 301 class. (i.e. What's your problem domain?) -->
@@ -13,12 +13,12 @@
 <!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
 
 ## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
+<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples: -->
 
-01-01-2001 4:59pm - Application now has a fully-functional express server, with GET and POST routes for the book resource.
+04-30-2019 *2:57pm* - Application now has a fully-functional express server, with GET and POST routes for the book resource.
 
 ## Credits and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+**Skylar Monahan** - https://github.com/kmons2000
 
 ## Time Estimates
 
@@ -49,5 +49,5 @@
 **Number and name of feature:** *5. As a user, I want a simple, clean looking UI so that my application is easy to navigate.*\
 **Estimate of time needed to complete:** *1 hour*\
 **Start time:** *12:50pm*\
-**Finish time:** *pm*\
-**Actual time needed to complete:** **
+**Finish time:** *2:55pm*\
+**Actual time needed to complete:** *2 hours, 5 minutes*
