@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "watch": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -17,5 +18,15 @@
   "bugs": {
     "url": "https://github.com/RoryLetteney/open-shelf/issues"
   },
-  "homepage": "https://github.com/RoryLetteney/open-shelf#readme"
+  "homepage": "https://github.com/RoryLetteney/open-shelf#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^7.0.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "superagent": "^5.0.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.11"
+  }
 }
