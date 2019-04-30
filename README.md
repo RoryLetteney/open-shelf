@@ -29,7 +29,7 @@
 **Actual time needed to complete:** *24 minutes*
 
 **Number and name of feature:** *2. As a user, I want to search the Google Books API so that I can view the results of my search.*\
-**Estimate of time needed to complete:** *45 minutes*\
+**Estimate of time needed to complete:** *10 minutes*\
 **Start time:** *10:16am*\
-**Finish time:** **\
-**Actual time needed to complete:** **
+**Finish time:** *10:20am*\
+**Actual time needed to complete:** *5 minutes*
