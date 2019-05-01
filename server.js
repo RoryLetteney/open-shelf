@@ -1,3 +1,5 @@
+'use strict';
+
 require('dotenv').config();
 const cors = require('cors');
 const superagent = require('superagent');
@@ -18,6 +20,7 @@ app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 
 app.get('/', (req, res) => getBooks(req, res, 'index'));
 app.get('/searches/new', (req, res) => res.render('pages/searches/new'));
+app.get('/book/:id', (req, res) => fetchSingleBookFromDB(req.params.id));
 app.post('/searches/show', (req, res) => getBooks(req, res, 'searches/show'));
 
 const getBooks = (req, res, page) => {
@@ -67,6 +70,12 @@ const fetchBooksFromDB = handler => {
   return client.query(SQL)
     .then(results => results.rowCount > 0 ? handler.cacheHit(results) : handler.cacheMiss())
     .catch(err => console.log(err));
+};
+
+const fetchSingleBookFromDB = id => {
+  const SQL = `SELECT * FROM books WHERE id=${id}`;
+  return client.query(SQL)
+    .then(results => console.log(results.rows));
 };
 
 Book.fetchBooksFromAPI = query => {
