@@ -23,7 +23,11 @@ app.get('/', (req, res) => getBooks(req, res, 'pages/index', false));
 app.get('/searches/new', (req, res) => res.render('pages/searches/new'));
 app.get('/book/:id', (req, res) => getBooks(req, res, 'pages/books/show', true));
 app.post('/searches/show', (req, res) => getBooks(req, res, 'pages/searches/show', false));
-app.post('/save', (req, res) => new Book(req.body).save());
+app.post('/save', (req, res) => {
+  const book = new Book(req.body);
+  book.save()
+    .then(result => res.redirect(`/book/${result.rows[0].id}`));
+});
 
 const getBooks = (req, res, page, single) => {
   const handler = {
@@ -31,7 +35,6 @@ const getBooks = (req, res, page, single) => {
     cacheHit: results => {
       try {
         if (page === 'pages/index') {
-          console.log(results);
           res.render(page, { results: results, totalSaved: results.length });
         } else if (page === 'pages/books/show') {
           res.render(page, { book: results[0] });
@@ -50,7 +53,7 @@ const getBooks = (req, res, page, single) => {
               res.render('pages/searches/show', { results });
             });
         } else {
-          res.render('pages/searches/new');
+          res.redirect('/searches/new');
         }
       } catch(err) {
         errorHandler(err, res);
