@@ -25,7 +25,7 @@ const getBooks = (req, res) => {
     query: req.body,
     cacheHit: results => {
       try {
-        res.render('pages/index', { results: results.rows });
+        res.render('pages/index', { results: results.rows, totalSaved: results.rows.length });
       } catch(err) {
         errorHandler(err, res);
       }
