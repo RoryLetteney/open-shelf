@@ -79,3 +79,9 @@
 **Start time:** *4:54pm*\
 **Finish time:** *5:44pm*\
 **Actual time needed to complete:** *50 minutes*
+
+**Number and name of feature:** *4. As a user, I want the ability to add new books to my application so that my collection continues to grow.*\
+**Estimate of time needed to complete:** *30 minutes*\
+**Start time:** *6:04pm*\
+**Finish time:** **\
+**Actual time needed to complete:** **
