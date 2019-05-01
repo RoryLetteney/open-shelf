@@ -63,3 +63,9 @@
 **Start time:** *9:30am*\
 **Finish time:** *12:34pm*\
 **Actual time needed to complete:** *3 hours, 4 minutes*
+
+**Number and name of feature:** *2. As a user, I want to request information about a single book so that I can view its additional details and share it by URL.*\
+**Estimate of time needed to complete:** *3 hours*\
+**Start time:** *12:48pm*\
+**Finish time:** **\
+**Actual time needed to complete:** **
