@@ -1,7 +1,7 @@
 # Open Shelf: A Book Wiki
 
 **Author**: Rory Letteney
-**Version**: 2.2.5
+**Version**: 2.3.1
 
 ## Overview
 <!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for a Code Fellows 301 class. (i.e. What's your problem domain?) -->
@@ -20,6 +20,8 @@
 05-01-2019 *12:34pm* - Application now has a fully-functional PostgreSQL database storing and serving books.
 
 05-01-2019 *4:43pm* - Application now has navigation, EJS partials use, user choice in what books are saved to the database, and a single book detail page.
+
+05-01-2019 *5:51pm* - Book cards returned by API now give the user the ability to update the information of the book before saving it to the database.
 
 ## Credits and Collaborations
 **Skylar Monahan** - https://github.com/kmons2000
@@ -71,3 +73,9 @@
 **Start time:** *12:48pm*\
 **Finish time:** *4:43pm*\
 **Actual time needed to complete:** *3 hours, 55 minutes (break for code challenge)*
+
+**Number and name of feature:** *3. As a user, I want the ability to change details of a single book from the search results so that I can write in my custom details and assign the book to a bookshelf.*\
+**Estimate of time needed to complete:** *1 hour*\
+**Start time:** *4:54pm*\
+**Finish time:** *5:44pm*\
+**Actual time needed to complete:** *50 minutes*
