@@ -12,7 +12,3 @@ main {
   min-height: calc(100vh - 90px);
   padding-bottom: 30px;
 }
-
-.hide-me {
-  display: none;
-}
