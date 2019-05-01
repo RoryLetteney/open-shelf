@@ -18,20 +18,22 @@ client.connect();
 client.on('err', err => console.log(err));
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 
-app.get('/', (req, res) => getBooks(req, res, 'index'));
+app.get('/', (req, res) => getBooks(req, res, 'index', false));
 app.get('/searches/new', (req, res) => res.render('pages/searches/new'));
-app.get('/book/:id', (req, res) => fetchSingleBookFromDB(req.params.id));
-app.post('/searches/show', (req, res) => getBooks(req, res, 'searches/show'));
+app.get('/book/:id', (req, res) => getBooks(req, res, 'pages/books/show', true));
+app.post('/searches/show', (req, res) => getBooks(req, res, 'pages/searches/show', false));
 
-const getBooks = (req, res, page) => {
+const getBooks = (req, res, page, single) => {
   const handler = {
     query: req.body,
     cacheHit: results => {
       try {
         if (page === 'index') {
-          res.render('pages/index', { results: results.rows, totalSaved: results.rows.length });
+          res.render(page, { results: results, totalSaved: results.length });
+        } else if (page === 'pages/books/show') {
+          res.render(page, { book: results[0] });
         } else {
-          res.render('pages/searches/show', { results: results.rows });
+          res.render(page, { results: results.rows });
         }
       } catch(err) {
         errorHandler(err, res);
@@ -53,7 +55,11 @@ const getBooks = (req, res, page) => {
     }
   };
 
-  fetchBooksFromDB(handler);
+  if (single) {
+    fetchSingleBookFromDB(req.params.id, handler);
+  } else {
+    fetchBooksFromDB(handler);
+  }
 };
 
 // BOOK CONSTRUCTOR
@@ -68,14 +74,14 @@ const fetchBooksFromDB = handler => {
   const SQL = !Object.values(handler.query).length ? `SELECT * FROM books` : `SELECT * FROM books WHERE ${handler.query['title-or-author']} LIKE '%${handler.query.query}%'`;
 
   return client.query(SQL)
-    .then(results => results.rowCount > 0 ? handler.cacheHit(results) : handler.cacheMiss())
+    .then(results => results.rowCount > 0 ? handler.cacheHit(results.rows) : handler.cacheMiss())
     .catch(err => console.log(err));
 };
 
-const fetchSingleBookFromDB = id => {
+const fetchSingleBookFromDB = (id, handler) => {
   const SQL = `SELECT * FROM books WHERE id=${id}`;
   return client.query(SQL)
-    .then(results => console.log(results.rows));
+    .then(results => handler.cacheHit(results.rows));
 };
 
 Book.fetchBooksFromAPI = query => {
