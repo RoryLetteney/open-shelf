@@ -93,3 +93,9 @@
 **Start time:** *6:34pm*\
 **Finish time:** *6:35pm*\
 **Actual time needed to complete:** *1 minute*
+
+**Number and name of feature:** *6. As a user, I want a simple, clean-looking UI so that my application is easy to navigate.*\
+**Estimate of time needed to complete:** *20 minutes*\
+**Start time:** *6:42pm*\
+**Finish time:** **\
+**Actual time needed to complete:** **
