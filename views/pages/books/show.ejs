@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include ../../layout/head.ejs %>
+<body>
+  <%- include ../../layout/header.ejs %>
+  <main>
+    <h2><%= book.title %>, by <%= book.author %></h2>
+    <section class="book">
+      <%- include ../books/detail.ejs %>
+      <p class="book-description"><%= book.description %></p>
+      <p class="book-isbn"><%= book.isbn %></p>
+      <p class="book-bookshelf">Bookshelf: <%= book.bookshelf %></p>
+    </section>
+  </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</body>
+</html>

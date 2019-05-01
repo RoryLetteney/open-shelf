@@ -1,3 +1,5 @@
+'use strict';
+
 require('dotenv').config();
 const cors = require('cors');
 const superagent = require('superagent');
@@ -16,19 +18,24 @@ client.connect();
 client.on('err', err => console.log(err));
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 
-app.get('/', (req, res) => getBooks(req, res, 'index'));
+app.get('/', (req, res) => getBooks(req, res, 'pages/index', false));
 app.get('/searches/new', (req, res) => res.render('pages/searches/new'));
-app.post('/searches/show', (req, res) => getBooks(req, res, 'searches/show'));
+app.get('/book/:id', (req, res) => getBooks(req, res, 'pages/books/show', true));
+app.post('/searches/show', (req, res) => getBooks(req, res, 'pages/searches/show', false));
+app.post('/save', (req, res) => new Book(req.body).save());
 
-const getBooks = (req, res, page) => {
+const getBooks = (req, res, page, single) => {
   const handler = {
     query: req.body,
     cacheHit: results => {
       try {
-        if (page === 'index') {
-          res.render('pages/index', { results: results.rows, totalSaved: results.rows.length });
+        if (page === 'pages/index') {
+          console.log(results);
+          res.render(page, { results: results, totalSaved: results.length });
+        } else if (page === 'pages/books/show') {
+          res.render(page, { book: results[0] });
         } else {
-          res.render('pages/searches/show', { results: results.rows });
+          res.render(page, { results: results.rows });
         }
       } catch(err) {
         errorHandler(err, res);
@@ -50,23 +57,34 @@ const getBooks = (req, res, page) => {
     }
   };
 
-  fetchBooksFromDB(handler);
+  if (single) {
+    fetchSingleBookFromDB(req.params.id, handler);
+  } else {
+    fetchBooksFromDB(handler);
+  }
 };
 
 // BOOK CONSTRUCTOR
 function Book(book) {
-  this.title = book.volumeInfo.title || 'No title',
-  this.author = book.volumeInfo.authors ? book.volumeInfo.authors[0] : 'No author',
-  this.image_url = book.volumeInfo.imageLinks ? 'https' + book.volumeInfo.imageLinks.thumbnail.slice(4) : 'https://placehold.it/80x80',
-  this.description = book.volumeInfo.description || 'No description';
+  this.title = book.title || 'Title Unknown',
+  this.author = book.authors ? book.authors[0] : (book.author ? book.author : 'Author Unknown'),
+  this.image_url = book.imageLinks ? 'https' + book.imageLinks.thumbnail.slice(4) : (book.image_url ? book.image_url : 'https://placehold.it/100X200'),
+  this.description = book.description || 'Description Unknown',
+  this.isbn = book.volumeInfo ? `${book.volumeInfo.industryIdentifiers[0].type} ${book.volumeInfo.industryIdentifiers[0].identifier}` : (book.isbn ? book.isbn : 'ISBN Unknown');
 }
 
 const fetchBooksFromDB = handler => {
   const SQL = !Object.values(handler.query).length ? `SELECT * FROM books` : `SELECT * FROM books WHERE ${handler.query['title-or-author']} LIKE '%${handler.query.query}%'`;
 
   return client.query(SQL)
-    .then(results => results.rowCount > 0 ? handler.cacheHit(results) : handler.cacheMiss())
+    .then(results => results.rowCount > 0 ? handler.cacheHit(results.rows) : handler.cacheMiss())
     .catch(err => console.log(err));
+};
+
+const fetchSingleBookFromDB = (id, handler) => {
+  const SQL = `SELECT * FROM books WHERE id=${id}`;
+  return client.query(SQL)
+    .then(results => handler.cacheHit(results.rows));
 };
 
 Book.fetchBooksFromAPI = query => {
@@ -75,9 +93,7 @@ Book.fetchBooksFromAPI = query => {
   return superagent.get(URL)
     .then(res => {
       return res.body.items.map(item => {
-        const book = new Book(item);
-        book.isbn = item.volumeInfo.industryIdentifiers ? item.volumeInfo.industryIdentifiers[0].type + ' ' + item.volumeInfo.industryIdentifiers[0].identifier : 'No ISBN Found';
-        book.save();
+        const book = new Book(item.volumeInfo);
         return book;
       });
     }).catch(err => console.log(err));
