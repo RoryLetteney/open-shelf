@@ -18,17 +18,18 @@ client.connect();
 client.on('err', err => console.log(err));
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 
-app.get('/', (req, res) => getBooks(req, res, 'index', false));
+app.get('/', (req, res) => getBooks(req, res, 'pages/index', false));
 app.get('/searches/new', (req, res) => res.render('pages/searches/new'));
 app.get('/book/:id', (req, res) => getBooks(req, res, 'pages/books/show', true));
 app.post('/searches/show', (req, res) => getBooks(req, res, 'pages/searches/show', false));
+app.post('/save', (req, res) => new Book(req.body).save());
 
 const getBooks = (req, res, page, single) => {
   const handler = {
     query: req.body,
     cacheHit: results => {
       try {
-        if (page === 'index') {
+        if (page === 'pages/index') {
           res.render(page, { results: results, totalSaved: results.length });
         } else if (page === 'pages/books/show') {
           res.render(page, { book: results[0] });
@@ -64,10 +65,11 @@ const getBooks = (req, res, page, single) => {
 
 // BOOK CONSTRUCTOR
 function Book(book) {
-  this.title = book.volumeInfo.title || 'No title',
-  this.author = book.volumeInfo.authors ? book.volumeInfo.authors[0] : 'No author',
-  this.image_url = book.volumeInfo.imageLinks ? 'https' + book.volumeInfo.imageLinks.thumbnail.slice(4) : 'https://placehold.it/80x80',
-  this.description = book.volumeInfo.description || 'No description';
+  this.title = book.title || 'Title Unknown',
+  this.author = book.authors ? book.authors[0] : (book.author ? book.author : 'Author Unknown'),
+  this.image_url = book.imageLinks ? 'https' + book.imageLinks.thumbnail.slice(4) : (book.image_url ? book.image_url : 'https://placehold.it/100X200'),
+  this.description = book.description || 'Description Unknown',
+  this.isbn = book.volumeInfo ? `${book.volumeInfo.industryIdentifiers[0].type} ${book.volumeInfo.industryIdentifiers[0].identifier}` : (book.isbn ? book.isbn : 'ISBN Unknown');
 }
 
 const fetchBooksFromDB = handler => {
@@ -90,9 +92,7 @@ Book.fetchBooksFromAPI = query => {
   return superagent.get(URL)
     .then(res => {
       return res.body.items.map(item => {
-        const book = new Book(item);
-        book.isbn = item.volumeInfo.industryIdentifiers ? item.volumeInfo.industryIdentifiers[0].type + ' ' + item.volumeInfo.industryIdentifiers[0].identifier : 'No ISBN Found';
-        book.save();
+        const book = new Book(item.volumeInfo);
         return book;
       });
     }).catch(err => console.log(err));

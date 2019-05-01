@@ -19,6 +19,15 @@
         <h3 class="book-title"><%= book.title %></h3>
         <h4 class="book-author"><%= book.author %></h4>
         <p class="book-description"><%= book.description %></p>
+        <form id="save-book" class="hide-me" action="/save" method="POST">
+          <input name="author" value="<%= book.author %>">
+          <input name="title" value="<%= book.title %>">
+          <input name="image_url" value="<%= book.image_url %>">
+          <input name="description" value="<%= book.description %>">
+          <input name="isbn" value="<%= book.isbn %>">
+          <input name="bookshelf" value="<%= book.bookshelf %>">
+        </form>
+        <input form="save-book" type="submit" value="Save This Book">
       </section>
     <% }); %>
   </main>
