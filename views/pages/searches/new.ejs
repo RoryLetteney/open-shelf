@@ -12,15 +12,15 @@
     <h1>Best Books!</h1>
   </header>
   <main>
-    <h2>Search Results</h2>
-    <% results.forEach(book => { %>
-      <section class="book">
-        <img class="book-image" src=<%=  book.image_url %>>
-        <h3 class="book-title"><%= book.title %></h3>
-        <h4 class="book-author"><%= book.author %></h4>
-        <p class="book-description"><%= book.description %></p>
-      </section>
-    <% }); %>
+    <h2>Search by Title or Author</h2>
+    <form id="searches-form" action="/searches/show" method="POST">
+      <input name="query" id="query" placeholder="Enter a title or author" type="text">
+      <select name="title-or-author" id="title-or-author">
+        <option value="title">Title</option>
+        <option value="author">Author</option>
+      </select>
+      <input id="submit" type="submit" value="Search the Google Books API">
+    </form>
   </main>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 </body>

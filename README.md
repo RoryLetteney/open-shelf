@@ -1,7 +1,7 @@
 # Open Shelf: A Book Wiki
 
 **Author**: Rory Letteney
-**Version**: 1.4.2
+**Version**: 2.1.6
 
 ## Overview
 <!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for a Code Fellows 301 class. (i.e. What's your problem domain?) -->
@@ -17,10 +17,14 @@
 
 04-30-2019 *2:57pm* - Application now has a fully-functional express server, with GET and POST routes for the book resource.
 
+05-01-2019 *12:34pm* - Application now has a fully-functional PostgreSQL database storing and serving books.
+
 ## Credits and Collaborations
 **Skylar Monahan** - https://github.com/kmons2000
 
 ## Time Estimates
+
+### Tuesday
 
 **Number and name of feature:** *1. As a user, I want my application to load quickly so that I have an enjoyable experience.*\
 **Estimate of time needed to complete:** *45 minutes*\
@@ -51,3 +55,11 @@
 **Start time:** *12:50pm*\
 **Finish time:** *2:55pm*\
 **Actual time needed to complete:** *2 hours, 5 minutes*
+
+### Wednesday
+
+**Number and name of feature:** *1. As a user, I want all of my saved books to be displayed on the home page so that I can view all of the books from my collection in a single view.*\
+**Estimate of time needed to complete:** *3 hours*\
+**Start time:** *9:30am*\
+**Finish time:** *12:34pm*\
+**Actual time needed to complete:** *3 hours, 4 minutes*
