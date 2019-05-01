@@ -71,3 +71,9 @@
 **Start time:** *12:48pm*\
 **Finish time:** *4:43pm*\
 **Actual time needed to complete:** *3 hours, 55 minutes (break for code challenge)*
+
+**Number and name of feature:** *3. As a user, I want the ability to change details of a single book from the search results so that I can write in my custom details and assign the book to a bookshelf.*\
+**Estimate of time needed to complete:** *1 hour*\
+**Start time:** *4:54pm*\
+**Finish time:** **\
+**Actual time needed to complete:** **
