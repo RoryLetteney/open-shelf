@@ -49,7 +49,11 @@ Book.fetchBooks = (query) => {
 
   return superagent.get(URL)
     .then(res => {
-      return res.body.items.map(item => item.volumeInfo.imageLinks ? new Book(item) : '');
+      return res.body.items.map(item => {
+        const book = item.volumeInfo.imageLinks ? new Book(item) : '';
+        typeof book === 'object' ? book.isbn = item.volumeInfo.industryIdentifiers[0].type + ' ' + item.volumeInfo.industryIdentifiers[0].identifier : '';
+        return book;
+      });
     }).catch(err => console.log(err));
 };
 
