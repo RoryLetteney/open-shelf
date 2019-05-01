@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Open Shelf: A Book Wiki</title>
+  <link rel="stylesheet" href="../base.css">
+</head>
+<body>
+  <header>
+    <h1>Best Books!</h1>
+  </header>
+  <main>
+    <h2>Search by Title or Author</h2>
+    <form id="searches-form" action="/searches" method="POST">
+      <input name="query" id="query" placeholder="Enter a title or author" type="text">
+      <select name="title-or-author" id="title-or-author">
+        <option value="title">Title</option>
+        <option value="author">Author</option>
+      </select>
+      <input id="submit" type="submit" value="Search the Google Books API">
+    </form>
+  </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</body>
+</html>

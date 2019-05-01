@@ -3,7 +3,8 @@ const cors = require('cors');
 const superagent = require('superagent');
 const express = require('express'),
   app = express(),
-  PORT = process.env.PORT || 3000;
+  PORT = process.env.PORT || 3000,
+  DATABASE_URL = process.env.DATABASE_URL;
 
 app.use(cors());
 app.set('view engine', 'ejs');
@@ -12,6 +13,7 @@ app.use(express.static('./public/styles'));
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 
 app.get('/', (req, res) => res.render('pages/index'));
+app.get('/searches/new', (req, res) => res.render('pages/searches/new'));
 app.post('/searches', (req, res) => getBooks(req, res));
 
 const getBooks = (req, res) => {
