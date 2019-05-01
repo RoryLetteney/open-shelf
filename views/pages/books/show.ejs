@@ -12,10 +12,9 @@
     <h1>Best Books!</h1>
   </header>
   <main>
+    <h2><%= book.title %>, by <%= book.author %></h2>
     <section class="book">
-      <img class="book-image" src=<%=  book.image_url %>>
-      <h3 class="book-title"><%= book.title %></h3>
-      <h4 class="book-author"><%= book.author %></h4>
+      <%- include ../books/detail.ejs %>
       <p class="book-description"><%= book.description %></p>
       <p class="book-isbn"><%= book.isbn %></p>
       <p class="book-bookshelf">Bookshelf: <%= book.bookshelf %></p>

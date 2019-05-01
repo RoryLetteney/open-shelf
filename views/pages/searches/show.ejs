@@ -15,10 +15,7 @@
     <h2>Search Results</h2>
     <% results.forEach(book => { %>
       <section class="book">
-        <img class="book-image" src=<%=  book.image_url %>>
-        <h3 class="book-title"><%= book.title %></h3>
-        <h4 class="book-author"><%= book.author %></h4>
-        <p class="book-description"><%= book.description %></p>
+        <%- include ../books/detail.ejs %>
         <form id="save-book" class="hide-me" action="/save" method="POST">
           <input name="author" value="<%= book.author %>">
           <input name="title" value="<%= book.title %>">

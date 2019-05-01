@@ -30,6 +30,7 @@ const getBooks = (req, res, page, single) => {
     cacheHit: results => {
       try {
         if (page === 'pages/index') {
+          console.log(results);
           res.render(page, { results: results, totalSaved: results.length });
         } else if (page === 'pages/books/show') {
           res.render(page, { book: results[0] });
