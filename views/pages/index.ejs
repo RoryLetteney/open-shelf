@@ -15,7 +15,7 @@
     <h2><span class="total-saved"><%= totalSaved %></span> Saved Books</h2>
     <% results.forEach(book => { %>
       <section class="book">
-        <img class="book-image" src=<%=  book.image %>>
+        <img class="book-image" src=<%=  book.image_url %>>
         <h3 class="book-title"><%= book.title %></h3>
         <h4 class="book-author"><%= book.author %></h4>
         <button class="show-details">View Details</button>

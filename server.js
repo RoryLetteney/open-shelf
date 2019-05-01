@@ -16,16 +16,20 @@ client.connect();
 client.on('err', err => console.log(err));
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 
-app.get('/', (req, res) => getBooks(req, res));
+app.get('/', (req, res) => getBooks(req, res, 'index'));
 app.get('/searches/new', (req, res) => res.render('pages/searches/new'));
-app.post('/searches/show', (req, res) => getBooks(req, res));
+app.post('/searches/show', (req, res) => getBooks(req, res, 'searches/show'));
 
-const getBooks = (req, res) => {
+const getBooks = (req, res, page) => {
   const handler = {
     query: req.body,
     cacheHit: results => {
       try {
-        res.render('pages/index', { results: results.rows, totalSaved: results.rows.length });
+        if (page === 'index') {
+          res.render('pages/index', { results: results.rows, totalSaved: results.rows.length });
+        } else {
+          res.render('pages/searches/show', { results: results.rows });
+        }
       } catch(err) {
         errorHandler(err, res);
       }
@@ -52,13 +56,13 @@ const getBooks = (req, res) => {
 // BOOK CONSTRUCTOR
 function Book(book) {
   this.title = book.volumeInfo.title || 'No title',
-  this.author = book.volumeInfo.authors || 'No author',
-  this.image = book.volumeInfo.imageLinks ? 'https' + book.volumeInfo.imageLinks.thumbnail.slice(4) : 'https://via.placeholder/50x100',
+  this.author = book.volumeInfo.authors ? book.volumeInfo.authors[0] : 'No author',
+  this.image_url = book.volumeInfo.imageLinks ? 'https' + book.volumeInfo.imageLinks.thumbnail.slice(4) : 'https://placehold.it/80x80',
   this.description = book.volumeInfo.description || 'No description';
 }
 
 const fetchBooksFromDB = handler => {
-  const SQL = `SELECT * FROM books`;
+  const SQL = !Object.values(handler.query).length ? `SELECT * FROM books` : `SELECT * FROM books WHERE ${handler.query['title-or-author']} LIKE '%${handler.query.query}%'`;
 
   return client.query(SQL)
     .then(results => results.rowCount > 0 ? handler.cacheHit(results) : handler.cacheMiss())
@@ -72,7 +76,7 @@ Book.fetchBooksFromAPI = query => {
     .then(res => {
       return res.body.items.map(item => {
         const book = new Book(item);
-        book.isbn = item.volumeInfo.industryIdentifiers[0].type + ' ' + item.volumeInfo.industryIdentifiers[0].identifier;
+        book.isbn = item.volumeInfo.industryIdentifiers ? item.volumeInfo.industryIdentifiers[0].type + ' ' + item.volumeInfo.industryIdentifiers[0].identifier : 'No ISBN Found';
         book.save();
         return book;
       });
