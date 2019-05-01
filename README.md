@@ -1,7 +1,7 @@
 # Open Shelf: A Book Wiki
 
 **Author**: Rory Letteney
-**Version**: 2.3.1
+**Version**: 2.4.1
 
 ## Overview
 <!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for a Code Fellows 301 class. (i.e. What's your problem domain?) -->
@@ -22,6 +22,8 @@
 05-01-2019 *4:43pm* - Application now has navigation, EJS partials use, user choice in what books are saved to the database, and a single book detail page.
 
 05-01-2019 *5:51pm* - Book cards returned by API now give the user the ability to update the information of the book before saving it to the database.
+
+05-01-2019 *6:31pm* - When user saves a book, they are now immediately taken to the details page for said book.
 
 ## Credits and Collaborations
 **Skylar Monahan** - https://github.com/kmons2000
@@ -79,3 +81,9 @@
 **Start time:** *4:54pm*\
 **Finish time:** *5:44pm*\
 **Actual time needed to complete:** *50 minutes*
+
+**Number and name of feature:** *4. As a user, I want the ability to add new books to my application so that my collection continues to grow.*\
+**Estimate of time needed to complete:** *30 minutes*\
+**Start time:** *6:04pm*\
+**Finish time:** *6:31pm*\
+**Actual time needed to complete:** *27 minutes*
