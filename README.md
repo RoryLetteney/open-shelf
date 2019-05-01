@@ -1,7 +1,7 @@
 # Open Shelf: A Book Wiki
 
 **Author**: Rory Letteney
-**Version**: 2.4.1
+**Version**: 2.5.1
 
 ## Overview
 <!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for a Code Fellows 301 class. (i.e. What's your problem domain?) -->
@@ -87,3 +87,9 @@
 **Start time:** *6:04pm*\
 **Finish time:** *6:31pm*\
 **Actual time needed to complete:** *27 minutes*
+
+**Number and name of feature:** *5. As a user, I want the application to be designed in a consistent way so that I do not experience any down time or slow load times.*\
+**Estimate of time needed to complete:** *1 minute*\
+**Start time:** *6:34pm*\
+**Finish time:** *6:35pm*\
+**Actual time needed to complete:** *1 minute*
