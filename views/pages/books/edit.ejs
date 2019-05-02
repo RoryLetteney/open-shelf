@@ -7,7 +7,11 @@
   <input class="edit-input-bookshelf" name="bookshelf" type="text" value="<%= book.bookshelf %>" placeholder="Bookshelf Name" required>
   <select class="edit-select" name="bookshelf-select">
     <%  bookshelves.forEach(shelf => { %>
-      <option value="<%= shelf.bookshelf %>"><%= shelf.bookshelf %></option>
+      <% if (shelf.bookshelf === book.bookshelf) { %>
+        <option value="<%= shelf.bookshelf %>" selected><%= shelf.bookshelf %></option>
+      <% } else { %>
+        <option value="<%= shelf.bookshelf %>"><%= shelf.bookshelf %></option>
+      <% } %>
     <% }); %>
   </select>
   <input class="edit-submit edit-button" type="submit" value="<%= submitName %>">

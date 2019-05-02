@@ -56,7 +56,10 @@ const getBooks = (req, res, page, single) => {
         if (Object.values(handler.query).length) {
           Book.fetchBooksFromAPI(handler.query)
             .then(results => {
-              res.render('pages/searches/show', { results });
+              const bookshelves = fetchBookshelves();
+              bookshelves.then(result => {
+                res.render('pages/searches/show', { results, bookshelves: result });
+              });
             });
         } else {
           res.redirect('/searches/new');

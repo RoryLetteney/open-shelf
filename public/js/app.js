@@ -15,4 +15,8 @@ $(document).ready(() => {
 
   // NAV STYLING FUNCTIONALITY
   $('#nav-icon').click(() => $('#nav-list').toggle('show'));
+
+  // EDIT FORM VALUES
+  // $('.edit-select') ? $(this).val($(this.prev().val())) : '';
+  location.href === 'http://localhost:3000/searches/show' ? $('.edit-input-bookshelf').val('') : '';
 });
