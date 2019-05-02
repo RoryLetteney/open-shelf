@@ -58,7 +58,7 @@ nav a {
   text-decoration: none;
 }
 
-/**********************FORM***********************/
+/**********************NEW SEARCH FORM***********************/
 
 form {
   width: 70%;
@@ -136,6 +136,7 @@ form #submit {
   line-height: 50px;
   text-decoration: none;
   border-radius: 5px;
+  border: none;
 }
 
 .book-isbn,
@@ -150,4 +151,52 @@ form #submit {
 
 .book-bookshelf {
   margin-top: 5px;
+}
+
+/**********************SAVE BOOK FORM***********************/
+
+.save-book {
+  clear: both;
+  overflow: hidden;
+}
+
+.save-book-input,
+.save-book-textarea {
+  margin-bottom: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 1.04166667%;
+}
+
+.save-book-input,
+.save-book-textarea,
+.save-book-button {
+  border-radius: 5px;
+  border: none;
+  font-family: "Arial";
+  font-size: 1.4em;
+}
+
+.save-book-input,
+.save-book-button {
+  height: 30px;
+}
+
+.save-book-textarea {
+  height: 90px;
+  resize: none;
+}
+
+.save-book-button {
+  background-color: #222;
+  color: #fff;
+  width: 45%;
+}
+
+.save-book-submit {
+  float: left;
+}
+
+.cancel {
+  float: right;
 }
