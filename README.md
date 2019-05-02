@@ -1,7 +1,7 @@
 # Open Shelf: A Book Wiki
 
 **Author**: Rory Letteney
-**Version**: 2.5.1
+**Version**: 2.6.4
 
 ## Overview
 <!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for a Code Fellows 301 class. (i.e. What's your problem domain?) -->
@@ -24,6 +24,8 @@
 05-01-2019 *5:51pm* - Book cards returned by API now give the user the ability to update the information of the book before saving it to the database.
 
 05-01-2019 *6:31pm* - When user saves a book, they are now immediately taken to the details page for said book.
+
+05-01-2019 *7:30pm* - Pages are now fully styled.
 
 ## Credits and Collaborations
 **Skylar Monahan** - https://github.com/kmons2000
@@ -93,3 +95,9 @@
 **Start time:** *6:34pm*\
 **Finish time:** *6:35pm*\
 **Actual time needed to complete:** *1 minute*
+
+**Number and name of feature:** *6. As a user, I want a simple, clean-looking UI so that my application is easy to navigate.*\
+**Estimate of time needed to complete:** *20 minutes*\
+**Start time:** *6:42pm*\
+**Finish time:** *7:28pm*\
+**Actual time needed to complete:** *46 minutes*

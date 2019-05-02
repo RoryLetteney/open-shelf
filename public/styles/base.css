@@ -13,6 +13,6 @@ main {
   padding-bottom: 30px;
 }
 
-.hide-me {
-  display: none;
+.show {
+  display: block;
 }

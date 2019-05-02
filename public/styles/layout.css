@@ -1,6 +1,8 @@
 header {
   background-color: black;
   padding: 30px 3.125%;
+  clear: both;
+  overflow: hidden;
 }
 
 .book {
@@ -9,4 +11,6 @@ header {
   background-color: #ccc;
   padding: 30px 3.125%;
   box-sizing: border-box;
+  border-radius: 5px;
+  box-shadow: 0 0 5px;
 }
