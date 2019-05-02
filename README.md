@@ -101,3 +101,11 @@
 **Start time:** *6:42pm*\
 **Finish time:** *7:28pm*\
 **Actual time needed to complete:** *46 minutes*
+
+### Thursday
+
+**Number and name of feature:** *1. As a user, I want to update the details of a book so that it displays the way I want it to, according to my personalized preferences.*\
+**Estimate of time needed to complete:** *2 hours*\
+**Start time:** *8:52am*\
+**Finish time:** **\
+**Actual time needed to complete:** **

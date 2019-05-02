@@ -8,16 +8,6 @@
     <% results.forEach(book => { %>
       <section class="book">
         <%- include ../books/detail.ejs %>
-        <form class="save-book" action="/save" method="POST">
-          <input class="save-book-input" name="author" type="text" value="<%= book.author %>" required>
-          <input class="save-book-input" name="title" type="text" value="<%= book.title %>" required>
-          <input class="save-book-input" name="image_url" type="text" value="<%= book.image_url %>" required>
-          <textarea class="save-book-textarea" name="description" required><%= book.description %></textarea>
-          <input class="save-book-input" name="isbn" type="text" value="<%= book.isbn %>" required>
-          <input class="save-book-input" name="bookshelf" type="text" placeholder="Bookshelf Name" required>
-          <input class="save-book-submit save-book-button" type="submit" value="Save Book">
-          <input id="cancel" class="cancel save-book-button" type="button" value="Cancel">
-        </form>
         <button class="select-book show-details">Select This Book</button>
       </section>
     <% }); %>
