@@ -10,7 +10,7 @@
       <p class="book-description"><%= book.description %></p>
       <p class="book-isbn"><%= book.isbn %></p>
       <p class="book-bookshelf">Bookshelf: <%= book.bookshelf %></p>
-      <%- include('edit.ejs', { book, action: '/update', method: 'PUT', submitName: 'Update Book', bookshelves }) %>
+      <%- include('edit.ejs', { book, action: `/update/${book.id}?_method=PUT`, method: 'POST', submitName: 'Update Book', bookshelves }) %>
       <%- include('../books/showEdit.ejs', { value: 'Update Book' }) %>
     </section>
   </main>
