@@ -155,4 +155,37 @@ form #submit {
 
 /**********************SAVE BOOK FORM***********************/
 
+.save-book-input,
+.save-book-textarea {
+  margin-bottom: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 1.04166667%;
+}
 
+.save-book-input,
+.save-book-textarea,
+.save-book-submit {
+  border-radius: 5px;
+  border: none;
+  font-family: "Arial";
+  font-size: 1.4em;
+}
+
+.save-book-input,
+.save-book-submit {
+  height: 30px;
+}
+
+.save-book-textarea {
+  height: 90px;
+  resize: none;
+}
+
+.save-book-submit {
+  background-color: #222;
+  color: #fff;
+  width: 60%;
+  margin: auto;
+  display: block;
+}
