@@ -187,6 +187,25 @@ form #submit {
   resize: none;
 }
 
+.edit-input-bookshelf,
+.edit-select {
+  width: 49%;
+  height: 30px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  box-sizing: border-box;
+  padding-left: 1.04166667%;
+}
+
+.edit-input-bookshelf {
+  border: none;
+  float: left;
+}
+
+.edit-select {
+  float: right;
+}
+
 .edit-button {
   background-color: #222;
   color: #fff;

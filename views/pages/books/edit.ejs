@@ -4,7 +4,10 @@
   <input class="edit-input" name="image_url" type="text" value="<%= book.image_url %>" placeholder="Cover Image" required>
   <textarea class="edit-textarea" name="description" placeholder="Description" required><%= book.description %></textarea>
   <input class="edit-input" name="isbn" type="text" value="<%= book.isbn %>" placeholder="ISBN">
-  <input class="edit-input" name="bookshelf" type="text" placeholder="Bookshelf Name" required>
+  <input class="edit-input-bookshelf" name="bookshelf" type="text" placeholder="Bookshelf Name" required>
+  <select class="edit-select" name="bookshelf-select">
+    <option value="default">Default</option>
+  </select>
   <input class="edit-submit edit-button" type="submit" value="<%= submitName %>">
   <input class="cancel edit-button" type="button" value="Cancel">
 </form>
