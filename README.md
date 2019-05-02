@@ -111,3 +111,9 @@
 **Start time:** *8:52am*\
 **Finish time:** *1:44pm*\
 **Actual time needed to complete:** *4 hours, 52 minutes*
+
+**Number and name of feature:** *2. As a user, I want to remove books from my collection so that it accurately represents my favorite books.*\
+**Estimate of time needed to complete:** *1 hour*\
+**Start time:** *2:09pm*\
+**Finish time:** **\
+**Actual time needed to complete:** **
