@@ -8,7 +8,7 @@
     <% results.forEach(book => { %>
       <section class="book">
         <%- include ../books/detail.ejs %>
-        <%- include('../books/edit.ejs', { book, action: '/save', method: 'POST', submitName: 'Save Book' }) %>
+        <%- include('../books/edit.ejs', { book, action: '/save', method: 'POST', submitName: 'Save Book', bookshelves }) %>
         <%- include('../books/showEdit.ejs', { value: 'Select Book' }) %>
       </section>
     <% }); %>

@@ -37,9 +37,15 @@ const getBooks = (req, res, page, single) => {
         if (page === 'pages/index') {
           res.render(page, { results: results, totalSaved: results.length });
         } else if (page === 'pages/books/show') {
-          res.render(page, { book: results[0] });
+          const bookshelves = fetchBookshelves();
+          bookshelves.then(result => {
+            res.render(page, { book: results[0], bookshelves: result });
+          });
         } else {
-          res.render(page, { results: results.rows });
+          const bookshelves = fetchBookshelves();
+          bookshelves.then(result => {
+            res.render(page, { results: results.rows, bookshelves: result });
+          });
         }
       } catch(err) {
         errorHandler(err, res);
@@ -90,6 +96,12 @@ const fetchSingleBookFromDB = (id, handler) => {
   const SQL = `SELECT * FROM books WHERE id=${id}`;
   return client.query(SQL)
     .then(results => handler.cacheHit(results.rows));
+};
+
+const fetchBookshelves = () => {
+  const SQL = 'SELECT DISTINCT bookshelf FROM books';
+  return client.query(SQL)
+    .then(results => results.rows);
 };
 
 Book.fetchBooksFromAPI = query => {
