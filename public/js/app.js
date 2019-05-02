@@ -3,12 +3,12 @@
 $(document).ready(() => {
 
   // SAVE STYLING FUNCTIONALITY
-  $('.save-book') ? $('.save-book').hide() : '';
+  $('.edit-form') ? $('.edit-form').hide() : '';
   $('.select-book') ? $('.select-book').click(function() {
     $(this).prev().show();
     $(this).hide();
   }) : '';
-  $('#cancel') ? $('#cancel').click(function() {
+  $('.cancel') ? $('.cancel').click(function() {
     $(this).parent().hide();
     $(this).parent().next().show();
   }) : '';
