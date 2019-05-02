@@ -4,7 +4,7 @@ $(document).ready(() => {
 
   // SAVE STYLING FUNCTIONALITY
   $('.edit-form') ? $('.edit-form').hide() : '';
-  $('.select-book') ? $('.select-book').click(function() {
+  $('.show-edit') ? $('.show-edit').click(function() {
     $(this).prev().show();
     $(this).hide();
   }) : '';
