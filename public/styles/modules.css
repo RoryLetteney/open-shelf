@@ -63,7 +63,8 @@ form #submit {
 .book-title {
   text-align: center;
   font-size: 2em;
-  color: #333;
+  color: #fff;
+  text-shadow: #222 0px 0px 3px;
   margin: 5px 0 0;
 }
 
@@ -81,6 +82,8 @@ form #submit {
   color: #222;
   margin: 15px 0 0;
   line-height: 1.6em;
+  background-color: #eee;
+  border-radius: 5px;
 }
 
 .show-details {
@@ -96,4 +99,19 @@ form #submit {
   font-weight: bold;
   line-height: 50px;
   text-decoration: none;
+  border-radius: 5px;
+}
+
+.book-isbn,
+.book-bookshelf {
+  text-align: center;
+  font-style: italic;
+}
+
+.book-isbn {
+  margin-top: 15px;
+}
+
+.book-bookshelf {
+  margin-top: 5px;
 }

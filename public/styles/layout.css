@@ -9,4 +9,6 @@ header {
   background-color: #ccc;
   padding: 30px 3.125%;
   box-sizing: border-box;
+  border-radius: 5px;
+  box-shadow: 0 0 5px;
 }
