@@ -25,7 +25,7 @@
 
 05-01-2019 *6:31pm* - When user saves a book, they are now immediately taken to the details page for said book.
 
-05-01-2019 *7:30pm* - Pages are now fully styled.
+05-02-2019 *6:14am* - Pages are now fully styled.
 
 ## Credits and Collaborations
 **Skylar Monahan** - https://github.com/kmons2000
