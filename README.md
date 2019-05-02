@@ -1,7 +1,7 @@
 # Open Shelf: A Book Wiki
 
 **Author**: Rory Letteney
-**Version**: 3.1.8
+**Version**: 3.2.1
 
 ## Overview
 <!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for a Code Fellows 301 class. (i.e. What's your problem domain?) -->
@@ -28,6 +28,8 @@
 05-02-2019 *6:14am* - Pages are now fully styled.
 
 05-02-2019 *1:58pm* - User can now update the details of a saved book.
+
+05-02-2019 *3:10pm* - User can now delete saved books from the database.
 
 ## Credits and Collaborations
 **Skylar Monahan** - https://github.com/kmons2000
@@ -115,5 +117,5 @@
 **Number and name of feature:** *2. As a user, I want to remove books from my collection so that it accurately represents my favorite books.*\
 **Estimate of time needed to complete:** *1 hour*\
 **Start time:** *2:09pm*\
-**Finish time:** **\
-**Actual time needed to complete:** **
+**Finish time:** *3:10pm*\
+**Actual time needed to complete:** *1 hour, 1 minute*
