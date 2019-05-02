@@ -1,0 +1,19 @@
+<form class="edit-form" action="<%= action %>" method="<%= method %>">
+  <input class="edit-input" name="author" type="text" value="<%= book.author %>" placeholder="Author" required>
+  <input class="edit-input" name="title" type="text" value="<%= book.title %>" placeholder="Title" required>
+  <input class="edit-input" name="image_url" type="text" value="<%= book.image_url %>" placeholder="Cover Image" required>
+  <textarea class="edit-textarea" name="description" placeholder="Description" required><%= book.description %></textarea>
+  <input class="edit-input" name="isbn" type="text" value="<%= book.isbn %>" placeholder="ISBN">
+  <input class="edit-input-bookshelf" name="bookshelf" type="text" value="<%= book.bookshelf %>" placeholder="Bookshelf Name" required>
+  <select class="edit-select">
+    <%  bookshelves.forEach(shelf => { %>
+      <% if (shelf.bookshelf === book.bookshelf) { %>
+        <option value="<%= shelf.bookshelf %>" selected><%= shelf.bookshelf %></option>
+      <% } else { %>
+        <option value="<%= shelf.bookshelf %>"><%= shelf.bookshelf %></option>
+      <% } %>
+    <% }); %>
+  </select>
+  <input class="edit-submit edit-button" type="submit" value="<%= submitName %>">
+  <input class="cancel edit-button" type="button" value="Cancel">
+</form>

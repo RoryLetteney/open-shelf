@@ -122,7 +122,7 @@ form #submit {
   border-radius: 5px;
 }
 
-.show-details {
+.show-edit {
   display: block;
   text-align: center;
   height: 50px;
@@ -153,47 +153,66 @@ form #submit {
   margin-top: 5px;
 }
 
-/**********************SAVE BOOK FORM***********************/
+/**********************EDIT BOOK FORM***********************/
 
-.save-book {
+.edit-form {
   clear: both;
   overflow: hidden;
 }
 
-.save-book-input,
-.save-book-textarea {
+.edit-input,
+.edit-textarea {
   margin-bottom: 5px;
   width: 100%;
   box-sizing: border-box;
   padding-left: 1.04166667%;
 }
 
-.save-book-input,
-.save-book-textarea,
-.save-book-button {
+.edit-input,
+.edit-textarea,
+.edit-button {
   border-radius: 5px;
   border: none;
   font-family: "Arial";
   font-size: 1.4em;
 }
 
-.save-book-input,
-.save-book-button {
+.edit-input,
+.edit-button {
   height: 30px;
 }
 
-.save-book-textarea {
+.edit-textarea {
   height: 90px;
   resize: none;
 }
 
-.save-book-button {
+.edit-input-bookshelf,
+.edit-select {
+  width: 49%;
+  height: 30px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  box-sizing: border-box;
+  padding-left: 1.04166667%;
+}
+
+.edit-input-bookshelf {
+  border: none;
+  float: left;
+}
+
+.edit-select {
+  float: right;
+}
+
+.edit-button {
   background-color: #222;
   color: #fff;
   width: 45%;
 }
 
-.save-book-submit {
+.edit-submit {
   float: left;
 }
 

@@ -4,6 +4,7 @@ require('dotenv').config();
 const cors = require('cors');
 const superagent = require('superagent');
 const pg = require('pg');
+const methodOverride = require('method-override');
 const express = require('express'),
   app = express(),
   PORT = process.env.PORT || 3000,
@@ -14,6 +15,7 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('./public/styles'));
 app.use(express.static('./public/js'));
+app.use(methodOverride('_method'));
 const client = new pg.Client(DATABASE_URL);
 client.connect();
 client.on('err', err => console.log(err));
@@ -22,6 +24,9 @@ app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 app.get('/', (req, res) => getBooks(req, res, 'pages/index', false));
 app.get('/searches/new', (req, res) => res.render('pages/searches/new'));
 app.get('/book/:id', (req, res) => getBooks(req, res, 'pages/books/show', true));
+
+app.put('/update/:id', (req, res) => getBooks(req, res, 'pages/books/show', true, true));
+
 app.post('/searches/show', (req, res) => getBooks(req, res, 'pages/searches/show', false));
 app.post('/save', (req, res) => {
   const book = new Book(req.body);
@@ -29,7 +34,7 @@ app.post('/save', (req, res) => {
     .then(result => res.redirect(`/book/${result.rows[0].id}`));
 });
 
-const getBooks = (req, res, page, single) => {
+const getBooks = (req, res, page, single, update) => {
   const handler = {
     query: req.body,
     cacheHit: results => {
@@ -37,9 +42,15 @@ const getBooks = (req, res, page, single) => {
         if (page === 'pages/index') {
           res.render(page, { results: results, totalSaved: results.length });
         } else if (page === 'pages/books/show') {
-          res.render(page, { book: results[0] });
+          const bookshelves = fetchBookshelves();
+          bookshelves.then(result => {
+            res.render(page, { book: results[0], bookshelves: result });
+          });
         } else {
-          res.render(page, { results: results.rows });
+          const bookshelves = fetchBookshelves();
+          bookshelves.then(result => {
+            res.render(page, { results: results.rows, bookshelves: result });
+          });
         }
       } catch(err) {
         errorHandler(err, res);
@@ -50,7 +61,10 @@ const getBooks = (req, res, page, single) => {
         if (Object.values(handler.query).length) {
           Book.fetchBooksFromAPI(handler.query)
             .then(results => {
-              res.render('pages/searches/show', { results });
+              const bookshelves = fetchBookshelves();
+              bookshelves.then(result => {
+                res.render('pages/searches/show', { results, bookshelves: result });
+              });
             });
         } else {
           res.redirect('/searches/new');
@@ -61,7 +75,9 @@ const getBooks = (req, res, page, single) => {
     }
   };
 
-  if (single) {
+  if (update) {
+    updateBookDetails(req.body, req.params, handler);
+  } else if (single) {
     fetchSingleBookFromDB(req.params.id, handler);
   } else {
     fetchBooksFromDB(handler);
@@ -90,6 +106,20 @@ const fetchSingleBookFromDB = (id, handler) => {
   const SQL = `SELECT * FROM books WHERE id=${id}`;
   return client.query(SQL)
     .then(results => handler.cacheHit(results.rows));
+};
+
+const fetchBookshelves = () => {
+  const SQL = 'SELECT DISTINCT bookshelf FROM books';
+  return client.query(SQL)
+    .then(results => results.rows);
+};
+
+const updateBookDetails = (book, id, handler) => {
+  const SQL = `UPDATE books SET title=$2, author=$3, image_url=$4, description=$5, isbn=$6, bookshelf=$7 WHERE id=$1`;
+  const values = [id.id, ...Object.values(book)];
+  
+  return client.query(SQL, values)
+    .then(results => fetchSingleBookFromDB(id.id, handler));
 };
 
 Book.fetchBooksFromAPI = query => {
