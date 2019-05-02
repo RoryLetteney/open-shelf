@@ -25,7 +25,9 @@ app.get('/', (req, res) => getBooks(req, res, 'pages/index', false));
 app.get('/searches/new', (req, res) => res.render('pages/searches/new'));
 app.get('/book/:id', (req, res) => getBooks(req, res, 'pages/books/show', true));
 
-app.put('/update/:id', (req, res) => getBooks(req, res, 'pages/books/show', true, true));
+app.put('/book/:id', (req, res) => getBooks(req, res, 'pages/books/show', true, true));
+
+app.delete('/book/:id', (req, res) => deleteBook(req.params.id, res));
 
 app.post('/searches/show', (req, res) => getBooks(req, res, 'pages/searches/show', false));
 app.post('/save', (req, res) => {
@@ -117,9 +119,16 @@ const fetchBookshelves = () => {
 const updateBookDetails = (book, id, handler) => {
   const SQL = `UPDATE books SET title=$2, author=$3, image_url=$4, description=$5, isbn=$6, bookshelf=$7 WHERE id=$1`;
   const values = [id.id, ...Object.values(book)];
-  
+
   return client.query(SQL, values)
-    .then(results => fetchSingleBookFromDB(id.id, handler));
+    .then(() => fetchSingleBookFromDB(id.id, handler));
+};
+
+const deleteBook = (id, res) => {
+  const SQL = `DELETE FROM books WHERE id=${id}`;
+
+  return client.query(SQL)
+    .then(() => res.redirect('/'));
 };
 
 Book.fetchBooksFromAPI = query => {

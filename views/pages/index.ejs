@@ -8,7 +8,7 @@
     <% results.forEach(book => { %>
       <section class="book">
         <%- include books/detail.ejs %>
-        <a class="show-edit" href="book/<%= book.id %>">View Details</a>
+        <a class="book-button" href="book/<%= book.id %>">View Details</a>
       </section>
     <% }); %>
   </main>

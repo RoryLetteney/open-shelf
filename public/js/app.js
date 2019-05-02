@@ -18,4 +18,7 @@ $(document).ready(() => {
 
   // EDIT FORM VALUES
   location.href === 'http://localhost:3000/searches/show' ? $('.edit-input-bookshelf').val('') : '';
+
+  // DELETE FROM DATABASE
+  $('#delete-button') ? $('#delete-button').prev().prev().attr('id', 'delete-form') : '';
 });
