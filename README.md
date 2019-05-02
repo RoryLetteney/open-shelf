@@ -1,7 +1,7 @@
 # Open Shelf: A Book Wiki
 
 **Author**: Rory Letteney
-**Version**: 2.6.8
+**Version**: 3.1.8
 
 ## Overview
 <!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for a Code Fellows 301 class. (i.e. What's your problem domain?) -->
@@ -26,6 +26,8 @@
 05-01-2019 *6:31pm* - When user saves a book, they are now immediately taken to the details page for said book.
 
 05-02-2019 *6:14am* - Pages are now fully styled.
+
+05-02-2019 *1:58pm* - User can now update the details of a saved book.
 
 ## Credits and Collaborations
 **Skylar Monahan** - https://github.com/kmons2000
@@ -107,5 +109,5 @@
 **Number and name of feature:** *1. As a user, I want to update the details of a book so that it displays the way I want it to, according to my personalized preferences.*\
 **Estimate of time needed to complete:** *2 hours*\
 **Start time:** *8:52am*\
-**Finish time:** **\
-**Actual time needed to complete:** **
+**Finish time:** *1:44pm*\
+**Actual time needed to complete:** *4 hours, 52 minutes*
