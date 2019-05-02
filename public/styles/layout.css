@@ -1,6 +1,8 @@
 header {
   background-color: black;
   padding: 30px 3.125%;
+  clear: both;
+  overflow: hidden;
 }
 
 .book {
