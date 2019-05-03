@@ -1,0 +1,35 @@
+/**********************Color Palette***********************/
+
+div.p {
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    margin: 0 auto;
+    padding: 0.25%;
+    width: 19%;
+    height: 15vh;
+    margin-bottom: 1%;
+  }
+  
+  .palette1 {
+    background-color: #FFA400;
+  }
+  .palette2 {
+    background-color: #009FFD;
+  }
+  .palette3 {
+    background-color: #2A2A72;
+    color: #EAF6FF;
+  }
+  .palette4 {
+    background-color: #232528;
+    color: #EAF6FF;
+  }
+  .palette5 {
+    background-color: #EAF6FF;
+  }
+
+  .style-guide {
+      display: unset;
+      position: unset;
+  }

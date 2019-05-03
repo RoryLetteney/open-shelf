@@ -24,6 +24,7 @@ app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 app.get('/', (req, res) => getBooks(req, res, 'pages/index', false));
 app.get('/searches/new', (req, res) => res.render('pages/searches/new'));
 app.get('/book/:id', (req, res) => getBooks(req, res, 'pages/books/show', true));
+app.get('/style-guide', (req, res) => res.render('pages/styleGuide'));
 
 app.put('/book/:id', (req, res) => getBooks(req, res, 'pages/books/show', true, true));
 

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include ../layout/head.ejs %>
+    <link rel="stylesheet" href="style-guide.css">
+<body>
+    <div class='p palette1'>FFA400</div>
+    <div class='p palette2'>009FFD</div>
+    <div class='p palette3'>2A2A72</div>
+    <div class='p palette4'>232528</div>
+    <div class='p palette5'>EAF6FF</div>
+    <header>
+        <h1>This is an h1</h1>
+    </header>
+    <main>
+        <h2>This is an h2</h2>
+    </main>
+    <nav>
+        <ul class='style-guide'>
+            <li>This is a li inside a nav</li>
+        </ul>
+    </nav>
+    <form id="searches-form">
+        <input name="query" id="query" type="text" placeholder="This is an input">
+        <select name="title-or-author" id="title-or-author">
+            <option value="title">This is</option>
+            <option value="author">A select</option>
+        </select>
+        <input id="submit" type="submit">
+    </form>
+</body>
+</html>

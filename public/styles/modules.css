@@ -1,16 +1,16 @@
 main h2:first-of-type {
   font-size: 2em;
-  background-color: #777;
+  background-color: #009FFD;
   padding: 10px 0;
   text-align: center;
-  color: #fff;
+  color: #EAF6FF;
 }
 
 /**********************HEADERS***********************/
 
 header h1 {
   font-size: 3em;
-  color: #fff;
+  color: #EAF6FF;
   float: left;
 }
 
@@ -19,8 +19,8 @@ header nav {
 }
 
 .total-saved {
-  color: #777;
-  background-color: #fff;
+  color: #009FFD;
+  background-color: #EAF6FF;
   border-radius: 50%;
   padding: 5px 10px;
   display: inline-block;
@@ -30,7 +30,7 @@ header nav {
 /**********************NAV***********************/
 
 nav i {
-  color: #fff;
+  color: #EAF6FF;
   font-size: 3em;
   position: relative;
   cursor: pointer;
@@ -46,7 +46,7 @@ nav ul {
 
 nav li {
   text-align: center;
-  background-color: rgba(0,0,0,0.8);
+  background-color:#2A2A72;
   font-size: 2em;
   padding: 10px 0;
   line-height: 40px;
@@ -54,7 +54,7 @@ nav li {
 }
 
 nav a {
-  color: #fff;
+  color: #EAF6FF;
   text-decoration: none;
 }
 
@@ -83,8 +83,8 @@ form #query {
 }
 
 form #submit {
-  background-color: #222;
-  color: #fff; 
+  background-color: #232528;
+  color: #EAF6FF; 
 }
 
 
@@ -99,15 +99,15 @@ form #submit {
 .book-title {
   text-align: center;
   font-size: 2em;
-  color: #fff;
-  text-shadow: #222 0px 0px 3px;
+  color: #EAF6FF;
+  text-shadow: #232528 0px 0px 3px;
   margin: 5px 0 0;
 }
 
 .book-author {
   text-align: center;
   font-size: 1.6em;
-  color: #222;
+  color: #232528;
   margin: 5px 0 0;
   font-style: italic;
 }
@@ -115,10 +115,10 @@ form #submit {
 .book-description {
   text-align: center;
   font-size: 1.4em;
-  color: #222;
+  color: #232528;
   margin: 15px 0 0;
   line-height: 1.6em;
-  background-color: #eee;
+  background-color: #EAF6FF;
   border-radius: 5px;
 }
 
@@ -128,8 +128,8 @@ form #submit {
   height: 50px;
   width: 70%;
   margin: auto;
-  background-color: #222;
-  color: #fff;
+  background-color: #232528;
+  color: #EAF6FF;
   margin-top: 30px;
   font-size: 2em;
   font-weight: bold;
@@ -207,8 +207,8 @@ form #submit {
 }
 
 .edit-button {
-  background-color: #222;
-  color: #fff;
+  background-color: #232528;
+  color: #EAF6FF;
   width: 45%;
 }
 
@@ -219,3 +219,4 @@ form #submit {
 .cancel {
   float: right;
 }
+
